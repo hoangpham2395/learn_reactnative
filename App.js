@@ -37,6 +37,7 @@ import JustifyContentBasic from "./Demo/LayoutWithFlexbox/JustifyContentBasic";
 import AlignItemsBasic from "./Demo/LayoutWithFlexbox/AlignItemsBasic";
 import AlignSelfBasic from "./Demo/LayoutWithFlexbox/AlignSelfBasic";
 import PositionBasic from "./Demo/LayoutWithFlexbox/PositionBasic";
+import PizzaTranslator from "./Demo/HandlingInputText/PizzaTranslator";
 
 // const App = () => {
 //   return (
@@ -130,7 +131,7 @@ import PositionBasic from "./Demo/LayoutWithFlexbox/PositionBasic";
 
 const MainNavigation = createStackNavigator({
   // HelloWord: {screen: HelloWord},
-  Bananas: {screen: Bananas},
+  // Bananas: {screen: Bananas},
   // LotsOfGreeting: {screen: LotsOfGreeting},
   // BlinkApp: {screen: BlinkApp},
   // LotsOfStyles: {screen: LotsOfStyles},
@@ -140,7 +141,7 @@ const MainNavigation = createStackNavigator({
   // JustifyContentBasic: {screen: JustifyContentBasic},
   // AlignItemsBasic: {screen: AlignItemsBasic},
   // AlignSelfBasic: {screen: AlignSelfBasic},
-  // PositionBasic: {screen: PositionBasic},
+  PizzaTranslator: {screen: PizzaTranslator},
 });
 
 const App = createAppContainer(MainNavigation);
