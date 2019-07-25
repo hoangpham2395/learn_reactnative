@@ -40,6 +40,7 @@ import PositionBasic from "./Demo/LayoutWithFlexbox/PositionBasic";
 import PizzaTranslator from "./Demo/HandlingInputText/PizzaTranslator";
 import ButtonBasic from "./Demo/HandlingTouches/ButtonBasic";
 import TouchablesBasic from "./Demo/HandlingTouches/TouchablesBasic";
+import ScrolledDown from "./Demo/UsingAScrollView/ScrolledDown";
 
 // const App = () => {
 //   return (
@@ -145,7 +146,8 @@ const MainNavigation = createStackNavigator({
   // AlignSelfBasic: {screen: AlignSelfBasic},
   // PizzaTranslator: {screen: PizzaTranslator},
   // ButtonBasic: {screen: ButtonBasic},
-  TouchablesBasic: {screen: TouchablesBasic},
+  // TouchablesBasic: {screen: TouchablesBasic},
+  ScrolledDown: {screen: ScrolledDown},
 });
 
 const App = createAppContainer(MainNavigation);
