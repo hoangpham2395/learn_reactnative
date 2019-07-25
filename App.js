@@ -38,6 +38,8 @@ import AlignItemsBasic from "./Demo/LayoutWithFlexbox/AlignItemsBasic";
 import AlignSelfBasic from "./Demo/LayoutWithFlexbox/AlignSelfBasic";
 import PositionBasic from "./Demo/LayoutWithFlexbox/PositionBasic";
 import PizzaTranslator from "./Demo/HandlingInputText/PizzaTranslator";
+import ButtonBasic from "./Demo/HandlingTouches/ButtonBasic";
+import TouchablesBasic from "./Demo/HandlingTouches/TouchablesBasic";
 
 // const App = () => {
 //   return (
@@ -141,7 +143,9 @@ const MainNavigation = createStackNavigator({
   // JustifyContentBasic: {screen: JustifyContentBasic},
   // AlignItemsBasic: {screen: AlignItemsBasic},
   // AlignSelfBasic: {screen: AlignSelfBasic},
-  PizzaTranslator: {screen: PizzaTranslator},
+  // PizzaTranslator: {screen: PizzaTranslator},
+  // ButtonBasic: {screen: ButtonBasic},
+  TouchablesBasic: {screen: TouchablesBasic},
 });
 
 const App = createAppContainer(MainNavigation);
