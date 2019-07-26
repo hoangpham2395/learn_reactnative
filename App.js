@@ -42,6 +42,8 @@ import ButtonBasic from "./Demo/HandlingTouches/ButtonBasic";
 import TouchablesBasic from "./Demo/HandlingTouches/TouchablesBasic";
 import ScrolledDown from "./Demo/UsingAScrollView/ScrolledDown";
 import FlatListBasic from "./Demo/UsingListViews/FlatListBasic";
+import FetchExample from "./Demo/Networking/FetchExample";
+import WebSocketExample from "./Demo/Networking/WebSocketExample";
 
 // const App = () => {
 //   return (
@@ -150,7 +152,8 @@ const MainNavigation = createStackNavigator({
   // TouchablesBasic: {screen: TouchablesBasic},
 
   // ScrolledDown: {screen: ScrolledDown},
-  FlatListBasic: {screen: FlatListBasic},
+  // FlatListBasic: {screen: FlatListBasic},
+    FetchExample: {screen: FetchExample},
 });
 
 const App = createAppContainer(MainNavigation);
