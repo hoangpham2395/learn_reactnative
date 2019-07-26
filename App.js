@@ -41,6 +41,7 @@ import PizzaTranslator from "./Demo/HandlingInputText/PizzaTranslator";
 import ButtonBasic from "./Demo/HandlingTouches/ButtonBasic";
 import TouchablesBasic from "./Demo/HandlingTouches/TouchablesBasic";
 import ScrolledDown from "./Demo/UsingAScrollView/ScrolledDown";
+import FlatListBasic from "./Demo/UsingListViews/FlatListBasic";
 
 // const App = () => {
 //   return (
@@ -147,7 +148,9 @@ const MainNavigation = createStackNavigator({
   // PizzaTranslator: {screen: PizzaTranslator},
   // ButtonBasic: {screen: ButtonBasic},
   // TouchablesBasic: {screen: TouchablesBasic},
-  ScrolledDown: {screen: ScrolledDown},
+
+  // ScrolledDown: {screen: ScrolledDown},
+  FlatListBasic: {screen: FlatListBasic},
 });
 
 const App = createAppContainer(MainNavigation);
