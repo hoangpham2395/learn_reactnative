@@ -24,7 +24,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import {createStackNavigator, createAppContainer} from 'react-navigation';
+import {createStackNavigator, createAppContainer, createSwitchNavigator, createBottomTabNavigator} from 'react-navigation';
 import HelloWord from "./Demo/HelloWord";
 import Bananas from "./Demo/Props/Bananas";
 import LotsOfGreeting from "./Demo/Props/LotsOfGreeting";
@@ -44,6 +44,11 @@ import ScrolledDown from "./Demo/UsingAScrollView/ScrolledDown";
 import FlatListBasic from "./Demo/UsingListViews/FlatListBasic";
 import FetchExample from "./Demo/Networking/FetchExample";
 import WebSocketExample from "./Demo/Networking/WebSocketExample";
+import LoginScreen from "./Demo/Demo/Login/LoginScreen";
+import ProfileScreen from "./Demo/Demo/User/ProfileScreen";
+import AuthLoadingScreen from "./Demo/Demo/Login/AuthLoadingScreen";
+import ShopsScreen from "./Demo/Demo/User/ShopsScreen";
+import ShopDetailScreen from "./Demo/Demo/User/ShopDetailScreen";
 
 // const App = () => {
 //   return (
@@ -153,9 +158,33 @@ const MainNavigation = createStackNavigator({
 
   // ScrolledDown: {screen: ScrolledDown},
   // FlatListBasic: {screen: FlatListBasic},
-    FetchExample: {screen: FetchExample},
+  //   FetchExample: {screen: FetchExample},
+  //   WebSocketExample: {screen: WebSocketExample},
+    Login: {screen: LoginScreen},
+    Profile: {screen: ProfileScreen}
 });
 
-const App = createAppContainer(MainNavigation);
+const AppBottom = createBottomTabNavigator({
+    Profile: {screen: ProfileScreen},
+    Shops: {screen: ShopsScreen},
+});
+const AppStack = createStackNavigator({
+    ShopDetail: {screen: ShopDetailScreen}
+});
+const AuthStack = createStackNavigator({
+    Login: {screen: LoginScreen}
+});
+
+const App = createAppContainer(createSwitchNavigator(
+    {
+        AuthLoading: AuthLoadingScreen,
+        App: AppBottom,
+        AppStack: AppStack,
+        Auth: AuthStack,
+    },
+    {
+        initialRouteName: 'AuthLoading',
+    }
+));
 
 export default App;
