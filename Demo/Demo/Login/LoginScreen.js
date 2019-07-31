@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styles from './LoginCss';
+import styles from '../Common/Style';
 import {
     View,
     TextInput,
@@ -9,6 +9,9 @@ import {
     AsyncStorage,
 } from 'react-native';
 import { Config } from "../Common/Config";
+import {setCurrentAdmin, setToken} from "../Common/Helper";
+import {VLogin} from "../User/Validators/VUser";
+import CallApi from "../Common/CallApi";
 
 class LoginScreen extends Component
 {
@@ -28,50 +31,30 @@ class LoginScreen extends Component
     onPressLogin = async () => {
         let email = this.state.email;
         let password = this.state.password;
+        let data = {email, password};
 
-        // Check required
-        if (!email) {
-            return Alert.alert('Enter email.');
-        }
-
-        if (!password) {
-            return Alert.alert('Enter password.');
-        }
-
-        // Check email format
-        let regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
-        if(regEmail.test(email) === false)
-        {
-            return Alert.alert('Email is invalid.');
+        // Validate
+        let validator = await VLogin(data);
+        if (!validator.status) {
+            return Alert.alert(validator.message);
         }
 
         // Call api login
-        let params = {
+        let options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                email: email,
-                password: password
-            })
+            body: JSON.stringify(data)
         };
 
-        let response = await fetch(Config.domainApi + 'api/user/login', params)
-            .then((response) => response.json())
-            .then((responseJson) => {
-                return responseJson;
-            }, function () {
-                Alert.alert('Login failed.');
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        let response = await CallApi(Config.domainApi + 'api/user/login', options);
 
         if (response.status) {
-            // AsyncStorage chỉ lưu biến string
-            await AsyncStorage.setItem('@admin', JSON.stringify(response.data)).catch((e) => console.error(e));
-            await AsyncStorage.setItem('@accessToken', response.data.access_token).catch((e) => console.error(e));
+            // Lưu giá trị admin đang login
+            await setCurrentAdmin(response.data);
+            await setToken(response.data.access_token);
+            // Chuyển sang trang profile
             this.props.navigation.navigate('App');
         } else {
             Alert.alert(response.message);

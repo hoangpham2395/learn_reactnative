@@ -50,7 +50,17 @@ const styles = StyleSheet.create({
     },
     itemButton: {
         margin: 10,
-    }
+    },
+    textInput: {
+        height: 40,
+        borderColor: 'steelblue',
+        borderWidth: 1,
+        marginTop: 5,
+        marginBottom: 5,
+    },
+    label: {
+        fontWeight: 'bold',
+    },
 });
 
 export default styles;

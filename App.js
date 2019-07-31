@@ -49,6 +49,8 @@ import ProfileScreen from "./Demo/Demo/User/ProfileScreen";
 import AuthLoadingScreen from "./Demo/Demo/Login/AuthLoadingScreen";
 import ShopsScreen from "./Demo/Demo/User/ShopsScreen";
 import ShopDetailScreen from "./Demo/Demo/User/ShopDetailScreen";
+import EditUserScreen from "./Demo/Demo/User/EditUserScreen";
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 // const App = () => {
 //   return (
@@ -165,12 +167,38 @@ const MainNavigation = createStackNavigator({
 });
 
 const AppBottom = createBottomTabNavigator({
-    Profile: {screen: ProfileScreen},
-    Shops: {screen: ShopsScreen},
+    Profile: createStackNavigator({
+        MyProfile: {screen: ProfileScreen},
+        EditUser: {screen: EditUserScreen}
+    }, {
+        initialRouteName: 'MyProfile',
+        navigationOptions: {
+            tabBarLabel: 'Profile',
+            tabBarOptions: {
+                showIcon: true
+            },
+            tabBarIcon: ({ focused, horizontal, tintColor }) => {
+                return <Icon name="user" size={25} color={tintColor}/>;
+            }
+        }
+    }),
+    Shops: createStackNavigator({
+        MyShops: {screen: ShopsScreen},
+        ShopDetail: {screen: ShopDetailScreen}
+    }, {
+        initialRouteName: 'MyShops',
+        navigationOptions: {
+            tabBarLabel: 'Shops',
+            tabBarOptions: {
+                showIcon: true
+            },
+            tabBarIcon: ({ focused, horizontal, tintColor }) => {
+                return <Icon name="store" size={25} color={tintColor}/>;
+            }
+        }
+    }),
 });
-const AppStack = createStackNavigator({
-    ShopDetail: {screen: ShopDetailScreen}
-});
+
 const AuthStack = createStackNavigator({
     Login: {screen: LoginScreen}
 });
@@ -179,7 +207,6 @@ const App = createAppContainer(createSwitchNavigator(
     {
         AuthLoading: AuthLoadingScreen,
         App: AppBottom,
-        AppStack: AppStack,
         Auth: AuthStack,
     },
     {

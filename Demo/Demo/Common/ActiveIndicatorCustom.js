@@ -3,7 +3,7 @@ import {
     View,
     ActivityIndicator
 } from 'react-native';
-import styles from "../Login/LoginCss";
+import styles from "./Style";
 
 class ActiveIndicatorCustom extends Component
 {

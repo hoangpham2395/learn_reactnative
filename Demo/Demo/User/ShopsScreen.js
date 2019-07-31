@@ -8,22 +8,16 @@ import {
     FlatList,
     Button,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import styles from "../Login/LoginCss";
+import styles from "../Common/Style";
 import ActiveIndicatorCustom from "../Common/ActiveIndicatorCustom";
 import { Config } from "../Common/Config";
+import {getToken} from "../Common/Helper";
+import CallApi from "../Common/CallApi";
 
 class ShopsScreen extends Component
 {
     static navigationOptions = {
-        tabBarLabel: 'Shops',
-        tabBarOptions: {
-            showIcon: true
-        },
-        tabBarIcon: ({ focused, horizontal, tintColor }) => {
-            // You can return any component that you like here!
-            return <Icon name="store" size={25} color={tintColor}/>;
-        }
+        header: null,
     };
 
     constructor(props) {
@@ -38,28 +32,24 @@ class ShopsScreen extends Component
         // Check login
 
         // Get list shop
-        const accessToken = await AsyncStorage.getItem('@accessToken').catch((e) => console.error(e));
-        return fetch(Config.domainApi + 'api/user/shops', {
+        const accessToken = await getToken();
+
+        // Call api
+        let options = {
             headers: {
                 'x-auth-token': accessToken
             }
-        })
-            .then((res) => res.json())
-            .then((resJson) => {
-                if (!resJson.status) {
-                    return Alert.alert(resJson.message);
-                }
+        };
 
-                this.setState({
-                    isLoading: false,
-                    data: resJson.data
-                });
-            }, function () {
-                Alert.alert('Failed.');
-            })
-            .catch((e) => {
-                console.error(e);
-            });
+        let result = await CallApi(Config.domainApi + 'api/user/shops', options);
+        if (!result.status) {
+            return Alert.alert(result.message);
+        }
+
+        this.setState({
+            isLoading: false,
+            data: result.data
+        });
     }
 
     render () {

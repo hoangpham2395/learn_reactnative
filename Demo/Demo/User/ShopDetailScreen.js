@@ -4,7 +4,7 @@ import {
     Text,
     Image,
 } from 'react-native';
-import styles from "../Login/LoginCss";
+import styles from "../Common/Style";
 import ActiveIndicatorCustom from "../Common/ActiveIndicatorCustom";
 import { HeaderBackButton } from 'react-navigation';
 import {Config} from "../Common/Config";
@@ -27,7 +27,7 @@ class ShopDetailScreen extends Component
                 borderWidth: 0
             },
             headerTintColor: 'white',
-            headerLeft: <HeaderBackButton tintColor="white" onPress={() => navigation.navigate('Shops')} />,
+            // headerLeft: <HeaderBackButton tintColor="white" onPress={() => navigation.navigate(null)} />,
         };
     };
 

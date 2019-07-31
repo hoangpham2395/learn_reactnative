@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from "../Login/LoginCss";
+import styles from "../Common/Style";
 import LoginScreen from "../Login/LoginScreen";
 import {
     View,
@@ -8,21 +8,14 @@ import {
     AsyncStorage,
     Alert,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import ActiveIndicatorCustom from "../Common/ActiveIndicatorCustom";
 import { Config } from "../Common/Config";
+import {getCurrentAdmin, getToken} from "../Common/Helper";
 
 class ProfileScreen extends Component
 {
     static navigationOptions = {
-        tabBarLabel: 'Profile',
-        tabBarOptions: {
-            showIcon: true
-        },
-        tabBarIcon: ({ focused, horizontal, tintColor }) => {
-            // You can return any component that you like here!
-            return <Icon name="user" size={25} color={tintColor}/>;
-        }
+        header: null,
     };
 
     constructor(props) {
@@ -35,7 +28,7 @@ class ProfileScreen extends Component
     }
 
     async getInfoUser() {
-        let admin = JSON.parse(await AsyncStorage.getItem('@admin'));
+        let admin = await getCurrentAdmin();
         this.setState({
             admin: admin,
             isLoading: false,
@@ -43,7 +36,7 @@ class ProfileScreen extends Component
     };
 
     onPressLogout = async () => {
-        const accessToken = await AsyncStorage.getItem('@accessToken');
+        const accessToken = await getToken();
         let params = {
             method: 'POST',
             headers: {
@@ -85,8 +78,9 @@ class ProfileScreen extends Component
                     <Text>Email: {data.email}</Text>
                     <Text>Phone number: {data.tel}</Text>
                 </View>
-                <View style={styles.mT20}>
-                    <Button title="Logout" style={styles.button} onPress={this.onPressLogout}/>
+                <View style={{marginTop: 20, flexDirection: 'row', justifyContent: 'space-around'}}>
+                    <Button title="Edit" style={{height: 50}} onPress={() => this.props.navigation.navigate('EditUser', {admin: JSON.stringify(data)})} />
+                    <Button title="Logout" style={{height: 50}} onPress={this.onPressLogout}/>
                 </View>
             </View>
         );
