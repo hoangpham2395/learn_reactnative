@@ -24,7 +24,6 @@ class ProfileScreen extends Component
             isLoggedIn: true,
             isLoading: true,
         };
-        this.getInfoUser();
     }
 
     async getInfoUser() {
@@ -64,6 +63,10 @@ class ProfileScreen extends Component
     };
 
     render () {
+        // Gọi ở đây thì từ trang khác back về sẽ load lại dữ liệu
+        // Đặt trong constructor thì sẽ không load lại dữ liệu
+        this.getInfoUser();
+
         if (this.state.isLoading) {
             // Chờ xử lý AsyncStorage xong, chưa xong thì chưa lấy thông tin user
             return <ActiveIndicatorCustom />;

@@ -91,14 +91,6 @@ class EditUserScreen extends Component
         return (
             <View style={styles.container}>
                 <View>
-                    <Text style={styles.label}>Name [<Icon name="asterisk" size={14} color="red"/>]</Text>
-                    <TextInput
-                        style={styles.textInput}
-                        value={this.state.name}
-                        onChangeText={(text) => this.setState({name: text})}
-                    />
-                </View>
-                <View>
                     <Text style={styles.label}>Email [<Icon name="asterisk" size={14} color="red"/>]</Text>
                     <TextInput
                         style={styles.textInput}

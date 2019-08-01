@@ -3,15 +3,9 @@ import {Validation} from "../../Common/Config";
 
 export function VEditUser(data)
 {
-    let {name, email, password, tel} = data;
+    let {email, password, tel} = data;
 
     // Check required
-    if (!name) {
-        return {
-            status: false,
-            message: Validation.nameRequired
-        }
-    }
     if (!email) {
         return {
             status: false,
