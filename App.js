@@ -51,6 +51,7 @@ import ShopsScreen from "./Demo/Demo/User/ShopsScreen";
 import ShopDetailScreen from "./Demo/Demo/User/ShopDetailScreen";
 import EditUserScreen from "./Demo/Demo/User/EditUserScreen";
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import ListBannersScreen from "./Demo/Demo/Banners/ListBannersScreen";
 
 // const App = () => {
 //   return (
@@ -194,6 +195,20 @@ const AppBottom = createBottomTabNavigator({
             },
             tabBarIcon: ({ focused, horizontal, tintColor }) => {
                 return <Icon name="store" size={25} color={tintColor}/>;
+            }
+        }
+    }),
+    Banners: createStackNavigator({
+        ListBanners: {screen: ListBannersScreen},
+    }, {
+        initialRouteName: 'ListBanners',
+        navigationOptions: {
+            tabBarLabel: 'Banners',
+            tabBarOptions: {
+                showIcon: true
+            },
+            tabBarIcon: ({ focused, horizontal, tintColor }) => {
+                return <Icon name="images" size={25} color={tintColor}/>;
             }
         }
     }),
