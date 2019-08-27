@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import styles from "../Common/Style";
 import ActiveIndicatorCustom from "../Common/ActiveIndicatorCustom";
-import { Config } from "../Common/Config";
+import {Api, Config} from "../Common/Config";
 import {getToken} from "../Common/Helper";
 import CallApi from "../Common/CallApi";
 
@@ -41,7 +41,7 @@ class ShopsScreen extends Component
             }
         };
 
-        let result = await CallApi(Config.domainApi + 'api/user/shops', options);
+        let result = await CallApi(Config.domainApi + Api.getListShops, options);
         if (!result.status) {
             return Alert.alert(result.message);
         }

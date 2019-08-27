@@ -8,7 +8,7 @@ import {
     Alert,
     AsyncStorage,
 } from 'react-native';
-import { Config } from "../Common/Config";
+import {Api, Config} from "../Common/Config";
 import {setCurrentAdmin, setToken} from "../Common/Helper";
 import {VLogin} from "../User/Validators/VUser";
 import CallApi from "../Common/CallApi";
@@ -48,7 +48,7 @@ class LoginScreen extends Component
             body: JSON.stringify(data)
         };
 
-        let response = await CallApi(Config.domainApi + 'api/user/login', options);
+        let response = await CallApi(Config.domainApi + Api.login, options);
 
         if (response.status) {
             // Lưu giá trị admin đang login

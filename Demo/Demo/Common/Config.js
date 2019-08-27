@@ -9,6 +9,15 @@ export const Constant = {
 
 };
 
+export const Api = {
+    auth: 'api/user/auth',
+    logout: 'api/user/logout',
+    editUser: 'api/user/edit',
+    getListShops: 'api/user/shops',
+    login: 'api/user/login',
+    getListBanners: 'api/user/banners',
+};
+
 export const Validation = {
     nameRequired: 'Name is required.',
     emailRequired: 'Email is required.',

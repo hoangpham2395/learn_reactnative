@@ -9,7 +9,7 @@ import {
     Alert,
 } from 'react-native';
 import ActiveIndicatorCustom from "../Common/ActiveIndicatorCustom";
-import { Config } from "../Common/Config";
+import {Api, Config} from "../Common/Config";
 import {getCurrentAdmin, getToken} from "../Common/Helper";
 
 class ProfileScreen extends Component
@@ -43,7 +43,7 @@ class ProfileScreen extends Component
             }
         };
 
-        let result = await fetch(Config.domainApi + 'api/user/logout', params)
+        let result = await fetch(Config.domainApi + Api.logout, params)
             .then((response) => response.json())
             .then((responseJson) => {
                 return responseJson;

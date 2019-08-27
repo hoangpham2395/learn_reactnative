@@ -8,6 +8,10 @@ function CallApi(url, options) {
             return resJson;
         }, function () {
             Alert.alert('Call api failed.');
+            return {
+                status: false,
+                message: 'Call api failed.',
+            };
         })
         .catch((e) => console.error(e));
 }

@@ -7,7 +7,7 @@ import {
     Image,
 } from 'react-native';
 import CallApi from "../Common/CallApi";
-import {Config} from "../Common/Config";
+import {Api, Config} from "../Common/Config";
 import ActiveIndicatorCustom from "../Common/ActiveIndicatorCustom";
 import styles from "../Common/Style";
 
@@ -28,7 +28,7 @@ class ListBannersScreen extends Component
     }
 
     async getListBanners() {
-        let urlApi = Config.domainApi + 'api/user/banners';
+        let urlApi = Config.domainApi + Api.getListBanners;
         let result = await CallApi(urlApi);
 
         if (!result.status) {
@@ -66,16 +66,5 @@ class ListBannersScreen extends Component
         );
     }
 }
-
-// class ShowImage extends Component
-// {
-//     render() {
-//
-//
-//         return (
-//             <Image style={{width: this.props.width, height: this.props.height}} source={{uri: uri}}/>
-//         );
-//     }
-// }
 
 export default ListBannersScreen;

@@ -9,7 +9,7 @@ import {
 import styles from "../Common/Style";
 import {VEditUser} from "./Validators/VUser";
 import CallApi from "../Common/CallApi";
-import {Config} from "../Common/Config";
+import {Api, Config} from "../Common/Config";
 import {getToken, setCurrentAdmin, setToken} from "../Common/Helper";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
@@ -61,7 +61,7 @@ class EditUserScreen extends Component
         }
 
         // Call api
-        let urlApi = Config.domainApi + 'api/user/edit';
+        let urlApi = Config.domainApi + Api.editUser;
         let token = await getToken();
         let options = {
             method: 'PUT',
