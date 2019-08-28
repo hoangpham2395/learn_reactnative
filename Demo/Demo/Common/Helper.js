@@ -21,3 +21,9 @@ export async function getCurrentAdmin()
     let admin = await AsyncStorage.getItem('@admin').catch((e) => console.error(e));
     return JSON.parse(admin);
 }
+
+export function checkFormatEmail(email) {
+    // Check email format
+    let regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
+    return regEmail.test(email);
+}

@@ -52,6 +52,9 @@ import ShopDetailScreen from "./Demo/Demo/User/ShopDetailScreen";
 import EditUserScreen from "./Demo/Demo/User/EditUserScreen";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import ListBannersScreen from "./Demo/Demo/Banners/ListBannersScreen";
+import SettingScreen from "./Demo/Demo/Settings/SettingScreen";
+import PushNotificationScreen from "./Demo/Demo/Settings/PushNotificationScreen";
+import SendMailScreen from "./Demo/Demo/Settings/SendMailScreen";
 
 // const App = () => {
 //   return (
@@ -211,6 +214,22 @@ const AppBottom = createBottomTabNavigator({
                 return <Icon name="images" size={25} color={tintColor}/>;
             }
         }
+    }),
+    Settings: createStackNavigator({
+        Setting: {screen: SettingScreen},
+        PushNotification: {screen: PushNotificationScreen},
+        SendMail: {screen: SendMailScreen},
+    }, {
+        initialRouteName: 'Setting',
+        navigationOptions: {
+            tabBarLabel: 'Settings',
+            tabBarOptions: {
+                showIcon: true,
+            },
+            tabBarIcon: ({focused, horizontal, tintColor}) => {
+                return <Icon name="cog" size={25} color={tintColor}/>;
+            }
+        },
     }),
 });
 

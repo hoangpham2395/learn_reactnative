@@ -61,6 +61,11 @@ const styles = StyleSheet.create({
     label: {
         fontWeight: 'bold',
     },
+    viewButton: {
+        width: '50%',
+        marginTop: 20,
+        marginBottom: 20,
+    },
 });
 
 export default styles;
