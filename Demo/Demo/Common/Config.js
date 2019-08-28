@@ -1,12 +1,12 @@
 import React from 'react';
 
 export const Config = {
-    domain: 'https://fastpick.dev-ui.com/',
-    domainApi: 'https://fastpick.dev-ui.com/v1/',
+    domain: '',
+    domainApi: '',
 };
 
 export const Constant = {
-
+    firebaseToken: '',
 };
 
 export const Api = {
