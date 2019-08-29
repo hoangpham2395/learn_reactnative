@@ -36,3 +36,30 @@ export function ValidatorSendMail(data) {
     
     return {status: true};
 }
+
+export function ValidatorPushNotification(data) {
+    let {title, content, firebaseToken} = data;
+    
+    if (!firebaseToken) {
+        return {
+            status: false,
+            message: Validation.firebaseTokenNotExist,
+        };
+    }
+    
+    if (!title) {
+        return {
+            status: false,
+            message: Validation.titleRequired,
+        };
+    }
+    
+    if (!content) {
+        return {
+            status: false,
+            message: Validation.contentRequired,
+        };
+    }
+    
+    return {status: true};
+}

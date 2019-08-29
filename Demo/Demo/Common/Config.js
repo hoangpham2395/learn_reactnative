@@ -28,8 +28,16 @@ export const Validation = {
     // Send mail
     subjectRequired: 'Subject is required.',
     bodyRequired: 'Body is required.',
+    
+    // Push notification
+    titleRequired: 'Title is required.',
+    contentRequired: 'Content is required.',
+    firebaseTokenNotExist: 'Firebase token does not exist.',
 };
 
 export const Message = {
     sendMailSuccess: 'Your email successful provided to device mail.',
+    getFirebaseToken: 'Get firebase token from https://console.firebase.google.com \n Choose Your project > Project settings > Cloud Messaging > Server key.',
+    sendTestMessageSuccess: 'Push notification - Send test message success.',
+    sendTestMessageFailed: 'Push notification - Send test message failed.',
 };
