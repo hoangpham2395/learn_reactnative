@@ -6,7 +6,7 @@ import {Constant, Message} from "../Common/Config";
 import ActiveIndicatorCustom from "../Common/ActiveIndicatorCustom";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import {ValidatorPushNotification} from "./ValidatorSettings";
-import {sendTestMessage} from "../Common/PushNotification";
+import {addTopic, getInfo, pushToTopic, sendTestMessage} from "../Common/PushNotification";
 
 export default class PushNotificationScreen extends Component
 {
@@ -52,6 +52,13 @@ export default class PushNotificationScreen extends Component
         if (!validator.status) {
             return Alert.alert(validator.message);
         }
+        
+        addTopic(firebaseToken, 'Test');
+        
+        pushToTopic('Test', title, content).then(() => {
+            //Alert.alert('success');
+            // console.log(getInfo(firebaseToken));
+        });
     };
     
     sendTestMessage = async () => {

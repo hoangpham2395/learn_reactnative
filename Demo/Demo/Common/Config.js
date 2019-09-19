@@ -3,10 +3,17 @@ import React from 'react';
 export const Config = {
     domain: '',
     domainApi: '',
+    // firebase
+    remoteUrlGetInfo: 'https://iid.googleapis.com/iid/info/',
+    remoteUrlAddToTopic: 'https://iid.googleapis.com/iid/v1:batchAdd',
+    remoteUrlRemoveFromTopic: 'https://iid.googleapis.com/iid/v1:batchRemove',
+    remoteUrlSendToTopic: 'https://fcm.googleapis.com/fcm/send',
+    sound: 'button84',
 };
 
 export const Constant = {
     firebaseToken: '',
+    firebaseApiKey: '',
 };
 
 export const Api = {
@@ -40,4 +47,6 @@ export const Message = {
     getFirebaseToken: 'Get firebase token from https://console.firebase.google.com \n Choose Your project > Project settings > Cloud Messaging > Server key.',
     sendTestMessageSuccess: 'Push notification - Send test message success.',
     sendTestMessageFailed: 'Push notification - Send test message failed.',
+    pushNotificationSuccess: 'Push notification success.',
+    pushNotificationFailed: 'Push notification failed.',
 };
