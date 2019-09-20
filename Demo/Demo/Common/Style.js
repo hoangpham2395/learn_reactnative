@@ -66,6 +66,9 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginBottom: 20,
     },
+    scene: {
+        flex: 1,
+    },
 });
 
 export default styles;

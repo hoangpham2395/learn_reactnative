@@ -22,6 +22,12 @@ export default class SettingScreen extends Component
                 <View style={styles.viewButton}>
                     <Button title="Push notification" onPress={() => this.loadPage('PushNotification')}/>
                 </View>
+                <View style={styles.viewButton}>
+                    <Button title="Calendar" onPress={() => this.loadPage('Calendar')}/>
+                </View>
+                <View style={styles.viewButton}>
+                    <Button title="Tab in tab" onPress={() => this.loadPage('TabInTab')}/>
+                </View>
             </View>
         );
     }    

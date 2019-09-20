@@ -55,6 +55,8 @@ import ListBannersScreen from "./Demo/Demo/Banners/ListBannersScreen";
 import SettingScreen from "./Demo/Demo/Settings/SettingScreen";
 import PushNotificationScreen from "./Demo/Demo/Settings/PushNotificationScreen";
 import SendMailScreen from "./Demo/Demo/Settings/SendMailScreen";
+import CalendarScreen from "./Demo/Demo/Settings/CalendarScreen";
+import TabInTabScreen from "./Demo/Demo/Settings/TabInTabScreen";
 
 // const App = () => {
 //   return (
@@ -219,6 +221,8 @@ const AppBottom = createBottomTabNavigator({
         Setting: {screen: SettingScreen},
         PushNotification: {screen: PushNotificationScreen},
         SendMail: {screen: SendMailScreen},
+        Calendar: {screen: CalendarScreen},
+        TabInTab: {screen: TabInTabScreen},
     }, {
         initialRouteName: 'Setting',
         navigationOptions: {
@@ -231,6 +235,8 @@ const AppBottom = createBottomTabNavigator({
             }
         },
     }),
+}, {
+    initialRouteName: 'Settings',
 });
 
 const AuthStack = createStackNavigator({
